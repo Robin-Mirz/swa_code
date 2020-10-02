@@ -1,0 +1,6 @@
+C:\Users\romir\source\repos\Dojo1\Dojo1\bin\Release\Dojo1.exe.config
+C:\Users\romir\source\repos\Dojo1\Dojo1\bin\Release\Dojo1.exe
+C:\Users\romir\source\repos\Dojo1\Dojo1\bin\Release\Dojo1.pdb
+C:\Users\romir\source\repos\Dojo1\Dojo1\obj\Release\Dojo1.csproj.CoreCompileInputs.cache
+C:\Users\romir\source\repos\Dojo1\Dojo1\obj\Release\Dojo1.exe
+C:\Users\romir\source\repos\Dojo1\Dojo1\obj\Release\Dojo1.pdb
