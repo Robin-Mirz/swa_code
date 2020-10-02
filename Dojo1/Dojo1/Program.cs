@@ -11,7 +11,7 @@ namespace Dojo1
     {
         static void Main(string[] args)
         {
-
+            //Start
 
             TestWithString();
 
