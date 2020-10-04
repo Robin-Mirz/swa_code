@@ -9,7 +9,7 @@ namespace Dojo1
     class Stack<T>
     {
         //Attribute
-        private Element<T> aktuell { get; set; }
+        private Element<T> aktuell;
 
         //Methoden
         
