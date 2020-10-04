@@ -9,10 +9,15 @@ namespace Dojo1
     class Element <T>
     {
 
-
+        public Element(T value, Element<T> next)
+        {
+            Value = value;
+            Next = next;
+            
+        }
 
         public T Value { get; set; }
-        public Element<T> next { get; set; }
+        public Element<T> Next { get; set; }
 
 
 

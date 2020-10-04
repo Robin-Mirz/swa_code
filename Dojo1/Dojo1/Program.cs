@@ -16,8 +16,8 @@ namespace Dojo1
             //TestWithString();
 
 
-            //TestWithInt();
-            TestWithFloat();
+            TestWithInt();
+            //TestWithDouble();
             Console.WriteLine();
             Console.ReadLine();
             
@@ -56,7 +56,7 @@ namespace Dojo1
 
         }
 
-        static void TestWithFloat()
+        static void TestWithDouble()
         {
             Stack<double> test = new Stack<double>();
             test.Push(5.2);

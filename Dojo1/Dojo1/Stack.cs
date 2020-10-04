@@ -17,12 +17,14 @@ namespace Dojo1
         {
             if(aktuell == null)
             {
-                aktuell = new Element<T>() { Value = element, next = null };
+                aktuell = new Element<T>(element, null);
 
             }
+
             else
+
             {
-                Element<T> tmp = new Element<T>() { Value = element, next = aktuell };
+                Element<T> tmp = new Element<T>(element, aktuell);
                 aktuell = tmp;
             }
 
@@ -35,7 +37,7 @@ namespace Dojo1
         if(aktuell != null)
             {
                 T tmp = aktuell.Value;
-                aktuell = aktuell.next;
+                aktuell = aktuell.Next;
                 return tmp;
 
 
