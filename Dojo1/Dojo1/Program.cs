@@ -13,16 +13,17 @@ namespace Dojo1
         {
             //Start
 
-            TestWithString();
+            //TestWithString();
 
 
             //TestWithInt();
-
+            TestWithFloat();
             Console.WriteLine();
             Console.ReadLine();
+            
 
 
-           
+
         }
         static void TestWithInt()
         {
@@ -52,6 +53,19 @@ namespace Dojo1
             Console.WriteLine("{0} removed", test.Pop());
             Console.WriteLine("read: '{0}'", test.Peek());
             Console.WriteLine("{0} removed", test.Pop());
+
+        }
+
+        static void TestWithFloat()
+        {
+            Stack<double> test = new Stack<double>();
+            test.Push(5.2);
+            test.Push(3.14);
+            test.Push(9.9);
+            test.Pop();
+            test.Pop();
+            test.Pop();
+            Console.WriteLine("read: '{0}'", test.Pop());
 
         }
     }

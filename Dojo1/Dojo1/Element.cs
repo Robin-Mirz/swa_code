@@ -8,8 +8,13 @@ namespace Dojo1
 {
     class Element <T>
     {
+
+
+
         public T Value { get; set; }
         public Element<T> next { get; set; }
+
+
 
     }
 }

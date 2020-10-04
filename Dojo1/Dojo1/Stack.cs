@@ -12,7 +12,7 @@ namespace Dojo1
         private Element<T> aktuell { get; set; }
 
         //Methoden
-
+        
         public void Push(T element)
         {
             if(aktuell == null)
