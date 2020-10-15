@@ -27,13 +27,11 @@ namespace SimpleWPF_Example
         {
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, Countdown);
-            timer.Tick += TimerReady; // um alles in die Liste einzutragen
-            
+            timer.Tick += TimerReady;
             timer.Start();
         }
         private void TimerReady(object sender, EventArgs e)
         {
-            
             call(this);
             timer.Stop();
         }

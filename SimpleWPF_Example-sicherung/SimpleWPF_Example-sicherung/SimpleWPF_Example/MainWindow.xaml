@@ -26,12 +26,12 @@
         <Label Grid.Column="1" Grid.Row="1" Content="Ready" Margin="10,5"/>
         <Label Grid.Column="3" Grid.Row="1" Content="Details" Margin="10,5"/>
         <ListView Grid.Column="0" Grid.Row="2" Margin="10" ItemsSource="{Binding WaitingList}" />
-        <ListView Grid.Column="1" Grid.Row="2" Margin="10" SelectedItem="{Binding SelctedReadyEntry}" ItemsSource="{Binding ReadyList}"></ListView>
+        <ListView Grid.Column="1" Grid.Row="2" Margin="10" SelectedItem="{Binding SelectedTransportation}" ItemsSource="{Binding ReadyList}"></ListView>
         <Button Grid.Row="2" Grid.Column="2" Content=">>" VerticalAlignment="Center" Width="50" Height="50"/>
         <DataGrid Grid.Column="3" Grid.Row="2" Margin="10" ItemsSource="{Binding SelectedCargo}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/> 
                 <DataGridTextColumn Header="Weight" Binding="{Binding Weight}"/>
             </DataGrid.Columns>
         </DataGrid>

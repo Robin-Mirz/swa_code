@@ -15,28 +15,28 @@ namespace SimpleWPF_Example
         public ObservableCollection<Transportation> ReadyList { get; set; }
         public ObservableCollection<CargoItem> SelectedCargo { get; set; }
 
-        
+        private Transportation selectedTransportation;
 
-        public Transportation SelectedReadyEntry
+        public Transportation SelectedTransportation
         {
-            get { return SelectedReadyEntry; }
-            set { 
-                SelectedReadyEntry = value;
-                SelectedCargo = SelectedReadyEntry.Cargo;
+            get { return selectedTransportation; }
+            set { selectedTransportation = value;
+                SelectedCargo = selectedTransportation.Cargo;
                 NotifyPropertyChanged("SelectedCargo");
             }
-
         }
 
-        private Transportation selcetedReadyEntry; //variable Class Memeber
+       
 
-
+        #region  ATTRIBUTES
         DispatcherTimer timer;
-
+        
         //Delegate of Type Informer (own defined Delegate) used to point to CounterEllapsed Method
         Informer CounterEllapsedInformer;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
 
         public UILogic()
         {
@@ -104,15 +104,12 @@ namespace SimpleWPF_Example
             WaitingList.Last().StartCountDown();
 
         }
-
-       
         private void NotifyPropertyChanged(string propertyname)
-        {
-            if(PropertyChanged != null)
+        {if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
-
         }
+
     }
 }
