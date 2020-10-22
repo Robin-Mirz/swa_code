@@ -14,31 +14,27 @@ namespace SimpleWPF_Example
         public ObservableCollection<Transportation> WaitingList { get; set; }
         public ObservableCollection<Transportation> ReadyList { get; set; }
         public ObservableCollection<CargoItem> SelectedCargo { get; set; }
-
-        public RelayCommand BtnClickedCmd { get; set; }
-
-
-        private Transportation selectedTransportation;
-
-        public Transportation selectedReadyEntry
+        public RelayCommand DetailBtnClickedCmd { get; set; }
+      
+        public Transportation SelectedReadyEntry //Property
         {
             get { return selectedReadyEntry; }
-            set { 
+            set
+            {
                 selectedReadyEntry = value;
-                //SelectedCargo = selectedTransportation.Cargo;
+                ////write details to property
+                //SelectedCargo = selectedReadyEntry.Cargo;
                 //NotifyPropertyChanged("SelectedCargo");
+
             }
         }
 
-       
-
-        #region  ATTRIBUTES
+        #region VARIABLES
+        private Transportation selectedReadyEntry; //variable | class member
         DispatcherTimer timer;
-        
+        public event PropertyChangedEventHandler PropertyChanged;
         //Delegate of Type Informer (own defined Delegate) used to point to CounterEllapsed Method
         Informer CounterEllapsedInformer;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
 
@@ -48,26 +44,25 @@ namespace SimpleWPF_Example
             ReadyList = new ObservableCollection<Transportation>();
 
             CounterEllapsedInformer = new Informer(CounterEllapsed); //create instance of Informer and point to specific method which is called if informer is evaluated
-
+                                                                     // DetailBtnClickedCmd = new RelayCommand(DetailsBtnClicked, CanExecuteShowDetailsBtn);
+            DetailBtnClickedCmd = new RelayCommand(new Action(DetailsBtnClicked),
+                () => { if (selectedReadyEntry == null) return false; else return true; });
             GenerateDemoEntries();
-
-            // BtnClickedCmd = new RelayCommand(new Action(DetailBtnClicked)); oder
-            BtnClickedCmd = new RelayCommand(DetailBtnClicked, CanExecuteDetailBtn); // same as above
-
-
         }
 
-        private bool CanExecuteDetailBtn()
+        //private bool CanExecuteShowDetailsBtn()
+        //{
+        //    if (selectedReadyEntry == null)
+        //    {
+        //        return false;
+        //    }
+        //    else return true;
+        //}
+
+        private void DetailsBtnClicked()
         {
-
-            if (selectedReadyEntry == null) return false;
-            else return true;
-
-        }
-
-        private void DetailBtnClicked()
-        {
-            SelectedCargo = selectedTransportation.Cargo;
+            //write details to property
+            SelectedCargo = selectedReadyEntry.Cargo;
             NotifyPropertyChanged("SelectedCargo");
         }
 
@@ -105,7 +100,7 @@ namespace SimpleWPF_Example
 
             WaitingList.Add(new Transportation(CounterEllapsedInformer)
             {
-                Countdown = 3,
+                Countdown = 7,
                 Destination = "Innsbruck",
                 Source = "bregenz",
                 Cargo = new ObservableCollection<CargoItem>()
@@ -127,8 +122,10 @@ namespace SimpleWPF_Example
             WaitingList.Last().StartCountDown();
 
         }
+
         private void NotifyPropertyChanged(string propertyname)
-        {if (PropertyChanged != null)
+        {
+            if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
